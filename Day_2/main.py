@@ -21,19 +21,19 @@ def intcode(data: program):
     while True:
         op = data[pointer]
 
-        if op == OPCODE.Addition:
+        if op == OPCODE.Addition.value:
             in_1 = data[pointer + 1]
             in_2 = data[pointer + 2]
             out = data[pointer + 3]
             data[out] = data[in_1] + data[in_2]
             pointer += 4
-        elif op == OPCODE.Multiplication:
+        elif op == OPCODE.Multiplication.value:
             in_1 = data[pointer + 1]
             in_2 = data[pointer + 2]
             out = data[pointer + 3]
             data[out] = data[in_1] * data[in_2]
             pointer += 4
-        elif op == OPCODE.Return:
+        elif op == OPCODE.Return.value:
             return data
         else:
             raise ValueError(f"Unknown OPCODE: {op} at position {pointer}")
